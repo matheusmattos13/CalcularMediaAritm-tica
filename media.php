@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Calculadora de média aritmética </title>
+    <title>Calculadora de média aritmética</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,17 +18,17 @@
     ?>
 
     <main>
-        <h1> Médias aritméticas </h1>
-        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post">
-            <label for="v1"> 1º Valor </label>
+        <h1>Médias aritméticas</h1>
+        <form action="<?= $_SERVER['PHP_SELF'] ?>" method="post" id="Form">
+            <label for="v1">1º Valor</label>
             <input type="number" name="v1" id="v1" value="<?= $v1 ?>">
-            <Label for="peso1"> 1º Peso </b> </Label>
+            <label for="peso1">1º Peso</label>
             <input type="number" name="peso1" id="peso1" value="<?= $peso1 ?>">
-            <label for="v2"> 2º Valor </label>
+            <label for="v2">2º Valor</label>
             <input type="number" name="v2" id="v2" value="<?= $v2 ?>">
-            <label for="peso2"> 2º Peso </label>
+            <label for="peso2">2º Peso</label>
             <input type="number" name="peso2" id="peso2" value="<?= $peso2 ?>">
-            <input type="submit" value="Calcular Médias ">
+            <input type="submit" id="end" value="Calcular Médias">
         </form>
     </main>
     <section>
@@ -44,10 +44,21 @@
 
         echo "<h1> Cálculo das Médias </h1>";
         echo "<p> Analisando os valores $v1 e $v2: </p>";
-        echo "<p> <li> A <b> Média Aritmética Simples </b> entre os valores é igual a $resul_simples. </p>";
-        echo "<p> <li> A <b> Média Aritmética Ponderada </b> com pesos $peso1 e $peso2 é igual a $resul_ponderada </p>";
+        echo "<p><li> A <b>Média Aritmética Simples</b> entre os valores é igual a $resul_simples. </p>";
+        echo "<p><li> A <b> Média Aritmética Ponderada </b> com pesos $peso1 e $peso2 é igual a $resul_ponderada </p>";
         ?>
     </section>
+
+    <script>
+        // Evento do click
+        document.getElementById('Form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Impedir que o formulário seja enviado 
+
+            // Mover o usuario para o final da página
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+    </script>
+
 </body>
 
 </html>
